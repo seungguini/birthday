@@ -6,7 +6,7 @@ https://webgradients.com/
 Creative Animations with Highway
 https://highway.js.org/
 
-Super COOL TRANSITION INTO WEBSITE WITH MESSAGE
+Super COOL TRANSITION INTO WEBSITE WITH MESSAGE - using gsap
 https://www.youtube.com/watch?v=sN93DRYkCO8
 
 VIDEO ANIMATES WITH SCROLL
