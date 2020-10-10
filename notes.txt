@@ -1,6 +1,16 @@
 Landing Page with Smooth Scroll
 https://www.youtube.com/watch?v=y9nlfqT4s9s
 
+GSAP docs
+https://greensock.com/get-started/#staggers
+
+AWESOME SCROLLTRIGGER BY GSAP
+https://www.youtube.com/watch?v=X7IBa7vZjmo&ab_channel=GreenSockLearning
+
+Animate plane with gsap and scrollmagic (but just replace w scrolltrigger)
+
+https://www.youtube.com/watch?v=fR0tHI0nFYk&ab_channel=DevEd
+
 https://webgradients.com/
 
 Creative Animations with Highway
