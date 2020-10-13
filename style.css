@@ -54,19 +54,3 @@
     top: 80%;
     transform: translateX(100%);
 }
-
-@keyframes plane {
-    from {
-        transform: translateY(0px);
-    } to {
-        transform: translateY(50px);
-    }
-}
-
-@keyframes clouds {
-    from {
-
-    } to {
-
-    }
-}
