@@ -54,3 +54,24 @@
     top: 80%;
     transform: translateX(100%);
 }
+
+.cloudb {
+    height: 60px;
+    position: absolute;
+    right: 0%;
+}
+
+#cloud4 {
+    top: 30%;
+    transform: translateX(100%);
+}
+
+#cloud5 {
+    top: 65%;
+    transform: translateX(100%);
+}
+
+#cloud6 {
+    top: 90%;
+    transform: translateX(100%);
+}

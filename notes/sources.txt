@@ -1,6 +1,9 @@
 GSAP docs
 https://greensock.com/get-started/#staggers
 
+plane flying pinterest to Animate
+https://www.pinterest.co.kr/pin/459578336973626719/
+
 airplane load icon
 https://www.youtube.com/watch?v=stYvCmQg5cs&ab_channel=OnlineTutorials
 

@@ -1,0 +1,7 @@
+1. Flight in progress...
+(animation for a bit, before letting user take control)
+
+please wait for a second..
+
+(airplane sound effect in the background with ding-dong?)
+
