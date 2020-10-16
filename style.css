@@ -5,25 +5,30 @@
     box-sizing: border-box;
 }
 
+/* palette:
+
+#C4E0FF
+
+#C6C4FF
+
+#C4FDFF
+*/
+
+
 .plane {
     position: absolute;
     height: 200px;
-    animation: plane 1s ease infinite;
 }
 
 .preload{
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(
-        -225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%
-        );
-        position: relative;
-        overflow: hidden;
+    background-color: #C4E0FF;
 }
 
 .preload h3 {
@@ -37,22 +42,24 @@
 .cloudf {
     height: 100px;
     position: absolute;
-    right: 0%; 
 }
 
 #cloud1 {
     top: 20%;
     transform: translateX(100%);
+    right: 0%; 
 }
 
 #cloud2 {
     top: 55%;
     transform: translateX(100%);
+    right: 20%;
 }
 
 #cloud3 {
     top: 80%;
     transform: translateX(100%);
+    right: 60%;
 }
 
 .cloudb {
@@ -74,4 +81,8 @@
 #cloud6 {
     top: 90%;
     transform: translateX(100%);
+}
+
+#fullpage {
+    height: 100vh;
 }

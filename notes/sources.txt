@@ -1,6 +1,12 @@
 GSAP docs
 https://greensock.com/get-started/#staggers
 
+
+scrolltrigger animations codepen collection
+https://codepen.io/collection/DkvGzg
+
+embed youtube media, AUDIO ONLY
+
 plane flying pinterest to Animate
 https://www.pinterest.co.kr/pin/459578336973626719/
 
@@ -37,3 +43,5 @@ fullpage.js
 https://www.youtube.com/watch?v=IeZSN6lWsWM
 https://alvarotrigo.com/fullPage/
 USE THESE FUCKEN HELL BRO
+
+https://www.youtube.com/watch?v=BfEQ1qgYsts&ab_channel=DevEd

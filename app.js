@@ -1,10 +1,18 @@
 gsap.registerPlugin(ScrollTrigger);
 
 /* timeline for bobbing airplane */
-var tlPlane = gsap.timeline({
-    defaults: {duration: 3, ease: "sine.inOut"},
-    repeat: -1
+let tlPlane = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".preload",
+        start: "center center",
+        end: "6000 top",
+        pin: ".preload",
+        scrub: 1,
+        markers: true
+    },
+    repeat: 1
 });
+
 /* airplane bobbing animation */
 tlPlane.fromTo(".plane",{
     y: '+=30',
@@ -17,22 +25,6 @@ tlPlane.fromTo(".plane",{
 .to(".plane", {
     y: '+=30',
     rotation: '-=1',
-});
-
-gsap.to(".cloudf", 5 ,{
-    right: '125%',
-    stagger: {
-        each: 2,
-        repeat: -1
-    }
-});
-
-gsap.to(".cloudb", 10 ,{
-    right: '125%',
-    stagger: {
-        each: 2,
-        repeat: -1
-    }
 });
 
 /*
