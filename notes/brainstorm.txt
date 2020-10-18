@@ -1,20 +1,39 @@
-1. Back screen, Welcome aboard (airplane ding dong)
+1. Intro
+[BLACK SCREEN]
+Welcome Aboard [TYPEWRITER EFFECT]
+to a new adventure [TYPEWRITER EFFECT]
 
-2. Why do we love flights?
+Adventure -> a new Adventure -> Welcome to a new adventure
+https://codepen.io/GreenSock/pen/EQVYMp (slide to push each word)
 
- Flight in progress...
-(animation for a bit, before letting user take control)
+[BLACK SCREEN FADES AWAY]
 
-please wait for a second..
+2. Initial flight screen
+[AIRPLANE BOBS UP AND DOWN, WHILE CLOUDS FLY PARALLAX TO SHOW MOVEMENT]
+Flying to a new destination... [BOB UP AND DOWN??]
+[AIRPLANE BUZZ SOUND EFFECT]
+[ANIMATION CONTINUES FOR 3-4 SECONDS BEFORE USER TAKES CONTROL]
 
-(airplane sound effect in the background with ding-dong?)
+Discovering new cultures...
 
-songs to play while scrolling...
+Learning a new language...
+
+Befriending foreign cats...
+
+
+3. User takeover for plane-scroll
+[SCREEN FADES SLIGHTLY OPAQUE GREY]
+Scroll down
+     V
+[AIRPLANE DING-DONG SOUND]
+
+4.
+
 
 find songs for each mood + letter
 
 
-EMOTIONS + songs: (play outside the viewport)
+EMOTIONS + place + songs: (play outside the viewport)
 
 happy
 
@@ -46,9 +65,28 @@ We may not be right next to each other (at least five footsteps away)
 
 and there are times when our distance seems unbearable
 
+Introducing 
+
+the letter box
+
+compact, yet versatile
+
+enter a letter
+
+which reflects your heart
+
+
 Traveling, humor, discovering new language and culture
 
-why do we like travel? because we get to explore
+Traveling
+
+Explore
+
+discovering
+
+similarities
+
+differences
 
 differences while finding comonalities among people we meet
 
@@ -59,3 +97,6 @@ In a sense, our relationship has been a journey of our own
 similarities (bond us together)
 
 differences (teach each other)
+
+
+There are obstacles

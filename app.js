@@ -1,11 +1,38 @@
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(TextPlugin);
 
-/* timeline for bobbing airplane */
-let tlPlane = gsap.timeline({
+const words = ["Welcome Aboard", "to a new", "Adventure"];
+const ids= ["cursor1", "cursor2", "cursor3"]
+
+let cursor = gsap.to(".cursor", {
+    opacity: 0, ease: "power2.inOut", repeat:-1
+});
+
+let masterTextTl = gsap.timeline()
+
+words.forEach(word => {
+    // 1. typewrite line of text 2. pause for a second before 'entering' (cursor animation)
+    let tl = gsap.timeline()
+    tl.to('.text', {
+        duration: 1,
+        value: word
+    })
+
+    masterTextTl.add(tl);
+});
+    
+
+/* IMMA NEST THIS SHIT */
+
+/* airplane bobbing animation (no control)*/
+
+
+/* timeline for bobbing airplane, with lagged scrubbing control*/
+let tlPlaneControl = gsap.timeline({
     scrollTrigger: {
         trigger: ".preload",
         start: "center center",
-        end: "6000 top",
+        end: "5000 top",
         pin: ".preload",
         scrub: 1,
         markers: true
@@ -14,7 +41,7 @@ let tlPlane = gsap.timeline({
 });
 
 /* airplane bobbing animation */
-tlPlane.fromTo(".plane",{
+tlPlaneControl.fromTo(".plane",{
     y: '+=30',
     rotation: '-=1'
 }, {
