@@ -8,7 +8,19 @@ https://codepen.io/GreenSock/pen/EQVYMp (slide to push each word)
 
 [BLACK SCREEN FADES AWAY]
 
-2. Initial flight screen
+2. Hero - Journey, join me
+
+Image of airplane on the side, with Journey text, smaller join me button -> click becomes scroll down sign
+https://unsplash.com/photos/rn-NLirHQPY
+
+https://www.youtube.com/watch?v=By00KuklzoM
+
+
+scroll
+
+Airplane
+
+3. Initial flight screen - i should push this out for one of the letters .. it doesn't fit too well with the beginning.
 [AIRPLANE BOBS UP AND DOWN, WHILE CLOUDS FLY PARALLAX TO SHOW MOVEMENT]
 Flying to a new destination... [BOB UP AND DOWN??]
 [AIRPLANE BUZZ SOUND EFFECT]
