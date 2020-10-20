@@ -18,18 +18,35 @@
 
 .intro {
     background: black;
-    position: absolute; /* fix to free component from physical barriers */
-    top: 0px;
-    left: 0px;
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 100vh;
     color: white;
+    font-size: 2vw;
 }
 
 .intro h1 {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.typing {
+    position: relative;  
+    padding-left: 2vw;
+}
+
+.text2 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
+    left: 40%;
+    top: 60%;
+    font-size: 2vw;
+    transform: translateX("-50%");
+.box {
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    background: #2800ad;
+    width: 100px;
+    height: 1vw;
+    z-index: -1;
 }
