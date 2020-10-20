@@ -8,21 +8,21 @@ let cursor = gsap.to('.cursor1', {duration: 1, opacity: 0, ease: "power2.inOut",
 let masterTl = gsap.timeline();
 
 let tlIntroAnimate = gsap.timeline({
-    repeat: -1
-}).delay(3);
+    repeat: -1,
+});
 
 hellos.forEach(word => {
-    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 0});
+    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 2});
     tl.to('.hello', {
-        duration: 3, text: word, ease: "power4.out"
+        duration: 2, text: word, ease: "power2.out"
     });
     tlIntroAnimate.add(tl);
 });
 
 let tlPlease = gsap.timeline();
 tlPlease.from(".text2", {
-    opacity: '0%',
-    ease: 'power2.in',
+    opacity: 0,
+    ease: 'power2.inOut',
     duration: 3
 }).delay(30);
 
