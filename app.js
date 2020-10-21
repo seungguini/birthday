@@ -3,13 +3,34 @@ gsap.registerPlugin(TextPlugin);
 
 const hellos = ["i love you!", "안녕하세요!", "selamat pagi!", "今日は!", "bonjour!", "你好!"]
 
-let cursor = gsap.to('.cursor1', {duration: 1, opacity: 0, ease: "power2.inOut", repeat: -1});
+let tlMaster = gsap.timeline().delay(0);
 
-let masterTl = gsap.timeline();
+// ENTER BOX
+let tlBox = gsap.from('.typing', {
+    //border: '10px solid white',
+    border: "10px solid black",
+    duration: 5,
+    ease: 'power1.out'
+});
+
+tlMaster.add(tlBox);
+
+// ENTER > AND _
+let tlArrow = gsap.from('.typing', {
+    opacity: 0,
+    duration: 5,
+    ease: 'power1.out'
+}).delay(5)
+
+tlMaster.add(tlArrow);
+
+// TYPE TEXT
+
+let cursor = gsap.to('.cursor1', {duration: 1, opacity: 0, ease: "power2.inOut", repeat: -1}).pause();
 
 let tlIntroAnimate = gsap.timeline({
     repeat: -1,
-});
+}).pause();
 
 hellos.forEach(word => {
     let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
@@ -24,7 +45,7 @@ tlPlease.from(".text2", {
     opacity: 0,
     ease: 'power2.inOut',
     duration: 3
-}).delay(5)
+}).delay(30)
 .to(".text2", {
     opacity: 0,
     ease: 'power1.inOut',
