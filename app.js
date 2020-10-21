@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
-const hellos = ["hello there!", "안녕하세요!", "selamat pagi!", "今日は!", "bonjour!", "你好!"]
+const hellos = ["i love you!", "안녕하세요!", "selamat pagi!", "今日は!", "bonjour!", "你好!"]
 
 let cursor = gsap.to('.cursor1', {duration: 1, opacity: 0, ease: "power2.inOut", repeat: -1});
 
@@ -12,7 +12,7 @@ let tlIntroAnimate = gsap.timeline({
 });
 
 hellos.forEach(word => {
-    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 2});
+    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
     tl.to('.hello', {
         duration: 2, text: word, ease: "power2.out"
     });
@@ -24,8 +24,14 @@ tlPlease.from(".text2", {
     opacity: 0,
     ease: 'power2.inOut',
     duration: 3
-}).delay(30);
-
+}).delay(5)
+.to(".text2", {
+    opacity: 0,
+    ease: 'power1.inOut',
+    duration: 2,
+    repeat: -1,
+    yoyo: true
+});
 
 
 

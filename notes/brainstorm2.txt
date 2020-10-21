@@ -1,0 +1,11 @@
+Typing Scene
+무한 (안녕하세요) 반복보다는 여러가지의 인삿말 (아님 사랑말)로 하다가
+i love you 로 끝난다..
+
+중간에 pin 시켜서 항상 중간 위치 유지
+OR 중간에 검색 박스 넣고 그 속에서 돌리면 중간 유지 + 앱 테마랑 유지!
+ 
+ 나중에 검색창에 삼각형 아래 화살표 만들어서 연관검색어 주기 (limits edge cases)
+
+
+Please Scroll Down (flash)
