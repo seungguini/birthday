@@ -6,22 +6,21 @@ const hellos = ["i love you!", "안녕하세요!", "selamat pagi!", "今日は!"
 let tlMaster = gsap.timeline();
 
 // ENTER BOX
-tlMaster.from('.typing', {
-    //border: '10px solid white',
-    border: "10px solid black",
-    duration: 5,
-    ease: 'power1.out'
+tlMaster.to('.typing',{
+    border: "10px solid white",
+    ease: 'power1.out',
+    delay: 1.5
 })
 
 // ENTER > AND _
-.from('.typing', {
-    opacity: 0,
+.to('.arrow', {
+    opacity: 100,
     duration: 5,
-    ease: 'power1.out'
-})
+    ease: 'power1.out',
+},">3")
 
 // CURSOR
-.to('.cursor1', {duration: 1, opacity: 0, ease: "power2.inOut", repeat: -1}, "<");
+.to('.cursor1', {duration: 1, opacity: 100, ease: "power2.inOut", repeat: -1, yoyo:true}, "<3");
 
 let tlIntroAnimate = gsap.timeline({
     repeat: -1,
@@ -37,13 +36,9 @@ hellos.forEach(word => {
 
 tlMaster.add(tlIntroAnimate, "+=7");
 
-tlMaster.from(".text2", {
-    opacity: 0,
-    ease: 'power2.inOut',
-    duration: 3
-})
-.to(".text2", {
-    opacity: 0,
+tlMaster
+.to(".plsScroll", {
+    opacity: 100,
     ease: 'power1.inOut',
     duration: 2,
     repeat: -1,
