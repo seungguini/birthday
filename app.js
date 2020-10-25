@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
 // add this as something that plays if you don't type anything for a while..
-const hellos = ["i love you!", "사랑해!", "saya sayang kamu!", , "我爱你!", "Je t'aime!", "愛してる!"]
+const hellos = ["no matter where you go", "no matter how you feel", "i'm here for you", "i love you"]
 
 let tlMaster = gsap.timeline();
 
@@ -46,7 +46,7 @@ tlMaster.add(tl)
 
 .to("html, body", {
     overflow: "visible"
-})
+}, ">")
 
 // Add scroll trigger after "i love you" - fade screen and show please scroll
 
@@ -55,7 +55,7 @@ tlMaster.add(tl)
     opacity: 100,
     ease: 'power4.inOut',
     duration: 1.5,
-    repeat: -1,
+    repeat: 5,
     yoyo: true,
     repeatDelay: 0.7
 }, ">");
@@ -64,17 +64,17 @@ let tlIntroAnimate = gsap.timeline({
     scrollTrigger: {
         trigger: ".intro",
         start: "center center",
-        end: "5000 top",
+        end: "20000 top",
         pin: ".intro",
         scrub: 1,
         markers: true
     }
-});
+},">1");
 
 hellos.forEach(word => {
     let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
     tl.to('.hello', {
-        duration: 2, 
+        duration: 1, 
         text: word, 
         ease: "power4.inOut"
     });
