@@ -3,6 +3,7 @@ gsap.registerPlugin(TextPlugin);
 
 // add this as something that plays if you don't type anything for a while..
 const hellos = ["no matter where you go", "no matter how you feel", "i'm here for you", "i love you"]
+let scrollpos = 0;
 
 let tlMaster = gsap.timeline();
 
@@ -64,28 +65,46 @@ let tlIntroAnimate = gsap.timeline({
     scrollTrigger: {
         trigger: ".intro",
         start: "center center",
-        end: "20000 top",
+        end: "10000 top",
         pin: ".intro",
         scrub: 1,
-        markers: true
+        markers: true,
+        onUpdate: ({progress, isActive}) => {
+            scrollpos = progress * 10;
+        }
     }
 },">1");
 
-hellos.forEach(word => {
-    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
-    tl.to('.hello', {
-        duration: 1, 
-        text: word, 
-        ease: "power4.inOut"
-    });
-    tlIntroAnimate.add(tl);
-});
+typeWord("no matter where you go");
+
+tlIntroAnimate.to('.planewindow', {
+    duration: 5,
+    opacity: '50%'
+}, '<')
 
 tlMaster.add(tlIntroAnimate, ">2")
 
+// SCENE - NO MATTER WHERE YOU GO
+
+// fade in airplane
 
 
-// pause animation upon scroll
+
+/* ANIMATE PLANE WINDOW VID */
+const intro = document.querySelector('.intro');
+const planeVideo = intro.querySelector('video');
+
+// VIDEO ANIMATION
+let accelamount = 0.1 // scrub spillover do i need this tho
+let delay = 0;
+
+setInterval( () => {
+    delay += (scrollpos-delay) * accelamount;
+    planeVideo.currentTime = delay;
+    console.log(planeVideo.currentTime)
+}, 10);
+
+
 
 /* timeline for bobbing airplane, with lagged scrubbing control
 let tlPlaneControl = gsap.timeline({
@@ -115,3 +134,13 @@ tlPlaneControl.fromTo(".plane",{
 });
 
 */
+
+function typeWord(word) {
+let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
+    tl.to('.hello', {
+        duration: 1, 
+        text: word, 
+        ease: "power4.inOut"
+    });
+    tlIntroAnimate.add(tl);
+}
