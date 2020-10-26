@@ -38,7 +38,7 @@ tlMaster.to('.typing',{
 let tl = gsap.timeline({repeat: 1, yoyo:true, repeatDelay: 1});
 tl.to('.hello', {
     duration: 2, 
-    text: "hello rika <3", 
+    text: "how's your weather?", 
     ease: "power4.inOut"
 },"<1");
 
@@ -68,17 +68,15 @@ let tlIntroAnimate = gsap.timeline({
         pin: ".intro",
         scrub: 1,
         markers: true,
-        onUpdate: ({progress, isActive}) => {
-            scrollpos = progress * 10;
-        }
     }
 },">1");
 
-typeWord("no matter where you go");
+typeWord("snowy");
 
 tlIntroAnimate.to('.snowycabin', {
-    duration: 5,
-    opacity: '50%'
+    duration: 1,
+    opacity: '50%,',
+    yoyo:true
 }, '<')
 
 tlMaster.add(tlIntroAnimate, ">2")
