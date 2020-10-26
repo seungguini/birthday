@@ -61,7 +61,7 @@ html, body {
     transform: translateX("-50%");
 }
 
-.planewindow {
+.snowycabin {
     position: fixed;
     width: 100%;
     height: 100vh;

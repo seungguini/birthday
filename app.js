@@ -3,7 +3,6 @@ gsap.registerPlugin(TextPlugin);
 
 // add this as something that plays if you don't type anything for a while..
 const hellos = ["no matter where you go", "no matter how you feel", "i'm here for you", "i love you"]
-let scrollpos = 0;
 
 let tlMaster = gsap.timeline();
 
@@ -77,7 +76,7 @@ let tlIntroAnimate = gsap.timeline({
 
 typeWord("no matter where you go");
 
-tlIntroAnimate.to('.planewindow', {
+tlIntroAnimate.to('.snowycabin', {
     duration: 5,
     opacity: '50%'
 }, '<')
@@ -86,23 +85,6 @@ tlMaster.add(tlIntroAnimate, ">2")
 
 // SCENE - NO MATTER WHERE YOU GO
 
-// fade in airplane
-
-
-
-/* ANIMATE PLANE WINDOW VID */
-const intro = document.querySelector('.intro');
-const planeVideo = intro.querySelector('video');
-
-// VIDEO ANIMATION
-let accelamount = 0.1 // scrub spillover do i need this tho
-let delay = 0;
-
-setInterval( () => {
-    delay += (scrollpos-delay) * accelamount;
-    planeVideo.currentTime = delay;
-    console.log(planeVideo.currentTime)
-}, 10);
 
 
 
