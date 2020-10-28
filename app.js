@@ -9,15 +9,12 @@ let tlMaster = gsap.timeline();
 // ENTER BOX
 tlMaster.to('.typing',{
     border: "10px solid white",
+    y: '-=10',
     ease: 'power1.out',
-    delay: 1.5
+    delay: 1.5,
+    duration: 1.5
 })
 
-.to('.typing',{
-    borderRadius: "20",
-    ease: 'elastic',
-    duration: 3
-}, "<0.2")
 
 // ENTER > AND _
 .to('.arrow', {
@@ -129,5 +126,5 @@ function revealIMG(img) {
         repeat: 1,
         repeatDelay: 0.5,
         yoyo:true,
-    }, '<-1');
+    }, '<1');
 }
