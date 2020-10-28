@@ -35,12 +35,40 @@ tlMaster.to('.typing',{
     repeatDelay: 0.5}, "<1")
 
 // hello rika!
-let tl = gsap.timeline({repeat: 1, yoyo:true, repeatDelay: 1});
+let tl = gsap.timeline();
 tl.to('.hello', {
     duration: 2, 
-    text: "how's your weather?", 
-    ease: "power4.inOut"
-},"<1");
+    text: "hi, rika", 
+    ease: "power4.inOut",
+    repeat: 1, 
+    yoyo:true, 
+    repeatDelay: 1
+}, "<1")
+
+.to('.hello', {
+    duration: 5, 
+    text: "welcome to Journey", 
+    ease: "power4.inOut",
+    repeat: 1, 
+    yoyo:true, 
+    repeatDelay: 1
+},">1")
+
+.to('.landingIMG', {
+    opacity: '50%',
+    duration: 5,
+    repeat: 1,
+    yoyo:true,
+}, '<-1')
+
+.to('.hello', {
+    duration: 2, 
+    text: "i listen to your emotions", 
+    ease: "power4.inOut",
+    repeat: 1, 
+    yoyo:true, 
+    repeatDelay: 1
+},">1");
 
 tlMaster.add(tl)
 
@@ -60,6 +88,8 @@ tlMaster.add(tl)
     repeatDelay: 0.7
 }, ">");
 
+// BEGIN SCROLLING
+
 let tlIntroAnimate = gsap.timeline({
     scrollTrigger: {
         trigger: ".intro",
@@ -71,49 +101,16 @@ let tlIntroAnimate = gsap.timeline({
     }
 },">1");
 
-typeWord("snowy");
+// reveal cat images with happy text
+typeWord("happy");
+revealIMG('.happy');
 
-tlIntroAnimate.to('.snowycabin', {
-    duration: 1,
-    opacity: '50%,',
-    yoyo:true
-}, '<')
+// reveal ___ images with sad text
+typeWord("sad");
+revealIMG('.sad');
 
-tlMaster.add(tlIntroAnimate, ">2")
+tlMaster.add(tlIntroAnimate, ">");
 
-// SCENE - NO MATTER WHERE YOU GO
-
-
-
-
-/* timeline for bobbing airplane, with lagged scrubbing control
-let tlPlaneControl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".preload",
-        start: "center center",
-        end: "5000 top",
-        pin: ".preload",
-        scrub: 1,
-        markers: true
-    },
-    repeat: 1
-});
-
-/* airplane bobbing animation
-tlPlaneControl.fromTo(".plane",{
-    y: '+=30',
-    rotation: '-=1'
-}, {
-
-    y: '-=30',
-    rotation: '+=1',
-})
-.to(".plane", {
-    y: '+=30',
-    rotation: '-=1',
-});
-
-*/
 
 function typeWord(word) {
 let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
@@ -121,6 +118,16 @@ let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
         duration: 1, 
         text: word, 
         ease: "power4.inOut"
-    });
+    },">1");
     tlIntroAnimate.add(tl);
+}
+
+function revealIMG(img) {
+    tlIntroAnimate.to(img, {
+        duration: 3,
+        opacity: '50%',
+        repeat: 1,
+        repeatDelay: 0.5,
+        yoyo:true,
+    }, '<-1');
 }
