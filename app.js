@@ -15,7 +15,6 @@ tlMaster.to('.typing',{
     duration: 1.5
 })
 
-
 // ENTER > AND _
 .to('.arrow', {
     opacity: 100,
