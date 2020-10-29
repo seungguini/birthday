@@ -34,7 +34,11 @@ html, body {
 .intro h1 {
     font-family: 'Roboto Mono', monospace;
 }
-
+.kim {
+    font-family: 맑은 고딕;
+    font-size: 2em;
+    color:blue;
+}
 .typing {
     top: 55%;
     left: 50%;
