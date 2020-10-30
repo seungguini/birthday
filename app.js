@@ -1,3 +1,5 @@
+
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
@@ -6,8 +8,13 @@ const hellos = ["no matter where you go", "no matter how you feel", "i'm here fo
 
 let tlMaster = gsap.timeline();
 
+// HIDE ALL IMAGES
+tlMaster.set('.introIMG', {
+    autoAlpha: 0
+})
+
 // ENTER BOX
-tlMaster.to('.typing',{
+.to('.typing',{
     border: "10px solid white",
     y: '-=10',
     ease: 'power1.out',
@@ -31,8 +38,7 @@ tlMaster.to('.typing',{
     repeatDelay: 0.5}, "<1")
 
 // hello rika!
-let tl = gsap.timeline();
-tl.to('.hello', {
+.to('.hello', {
     duration: 2, 
     text: "hi, rika", 
     ease: "power4.inOut",
@@ -51,22 +57,9 @@ tl.to('.hello', {
 },">1")
 
 .to('.landingIMG', {
-    opacity: '50%',
+    autoAlpha: 1,
     duration: 5,
-    repeat: 1,
-    yoyo:true,
 }, '<-1')
-
-.to('.hello', {
-    duration: 2, 
-    text: "i listen to your emotions", 
-    ease: "power4.inOut",
-    repeat: 1, 
-    yoyo:true, 
-    repeatDelay: 1
-},">1");
-
-tlMaster.add(tl)
 
 .to("html, body", {
     overflow: "visible"
@@ -95,35 +88,53 @@ let tlIntroAnimate = gsap.timeline({
         scrub: 1,
         markers: true,
     }
-},">1");
+},">1")
 
-// reveal cat images with happy text
-typeWord("happy");
+.to('.hello', {
+    duration: 2, 
+    text: "happy 21st birthday!", 
+    ease: "power4.inOut",
+    repeat: 1, 
+    yoyo:true, 
+    repeatDelay: 1
+},">1")
+
+// i help your emotions flow 
+.to('.hello', {
+    duration: 1, 
+    text: "happy", 
+    ease: "power4.inOut"
+},">1");
 revealIMG('.happy');
 
 // reveal ___ images with sad text
-typeWord("sad");
+let tl = typeWord("sad");
+tlIntroAnimate.add(tl, "<")
 revealIMG('.sad');
+
+tlIntroAnimate.to('typing',{
+    autoAlpha: 0
+}, ">3");
 
 tlMaster.add(tlIntroAnimate, ">");
 
 
 function typeWord(word) {
-let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
+    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
     tl.to('.hello', {
         duration: 1, 
-        text: word, 
+        text: "happy", 
         ease: "power4.inOut"
-    },">1");
-    tlIntroAnimate.add(tl);
+    });
+    return tl;
 }
 
 function revealIMG(img) {
     tlIntroAnimate.to(img, {
         duration: 3,
-        opacity: '50%',
+        autoAlpha: 1,
         repeat: 1,
         repeatDelay: 0.5,
         yoyo:true,
-    }, '<1');
+    }, '<');
 }
