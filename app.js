@@ -12,6 +12,11 @@ let tlMaster = gsap.timeline();
 tlMaster.set('.introIMG', {
     autoAlpha: 0
 })
+// HIDE INPUT BOX
+.set('.inputContainer',{
+    autoAlpha: 0,
+    y: '-=10'
+})
 
 // ENTER BOX
 .to('.typing',{
@@ -112,7 +117,7 @@ let tl = typeWord("sad");
 tlIntroAnimate.add(tl, "<")
 revealIMG('.sad');
 
-tlIntroAnimate.to('typing',{
+tlIntroAnimate.to('.typing',{
     autoAlpha: 0
 }, ">3");
 
