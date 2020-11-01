@@ -71,7 +71,7 @@ tlMaster.set('.introIMG', {
 
 .to("html, body", {
     overflow: "visible"
-}, ">3")
+}, ">7")
 
 // Add scroll trigger after "i love you" - fade screen and show please scroll
 
@@ -107,42 +107,47 @@ let tlIntroAnimate = gsap.timeline({
     repeatDelay: 1
 },">1")
 
-// i help your emotions flow 
 .to('.hello', {
     duration: 1, 
     text: "happy", 
-    ease: "power4.inOut"
+    ease: "power4.inOut",
+    repeat: 1, 
+    yoyo:true, 
+    repeatDelay: 1
 },">1");
-revealIMG('.happy');
 
+tlIntroAnimate.to('.happy', {
+    duration: 3,
+    autoAlpha: 1,
+    repeat: 1,
+    repeatDelay: 0.5,
+    yoyo:true,
+}, '<')
+
+.to('.hello', {
+    duration: 1, 
+    text: "sad", 
+    ease: "power4.inOut",
+    repeat: 1, 
+    yoyo:true, 
+    repeatDelay: 1
+},">1")
+
+.to('.sad', {
+    duration: 3,
+    autoAlpha: 1,
+    repeat: 1,
+    repeatDelay: 0.5,
+    yoyo:true,
+}, '<');
 // reveal ___ images with sad text
-let tl = typeWord("sad");
-tlIntroAnimate.add(tl, "<")
-revealIMG('.sad');
 
-tlIntroAnimate.to('.typing',{
+tlMaster.add(tlIntroAnimate)
+
+.to('.typing',{
     autoAlpha: 0
-}, ">3");
+}, ">3")
 
-tlMaster.add(tlIntroAnimate);
-
-
-function typeWord(word) {
-    let tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1});
-    tl.to('.hello', {
-        duration: 1, 
-        text: "happy", 
-        ease: "power4.inOut"
-    });
-    return tl;
-}
-
-function revealIMG(img) {
-    tlIntroAnimate.to(img, {
-        duration: 3,
-        autoAlpha: 1,
-        repeat: 1,
-        repeatDelay: 0.5,
-        yoyo:true,
-    }, '<');
-}
+.to('.inputContainer', {
+    autoAlpha: 1
+});
