@@ -1,4 +1,7 @@
-
+// reset scroll position on page reload
+window.addEventListener('beforeunload', function(event) { 
+    window.scrollTo(0, 0);
+});
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
@@ -68,7 +71,7 @@ tlMaster.set('.introIMG', {
 
 .to("html, body", {
     overflow: "visible"
-}, ">")
+}, ">3")
 
 // Add scroll trigger after "i love you" - fade screen and show please scroll
 
@@ -93,7 +96,7 @@ let tlIntroAnimate = gsap.timeline({
         scrub: 1,
         markers: true,
     }
-},">1")
+})
 
 .to('.hello', {
     duration: 2, 
@@ -121,7 +124,7 @@ tlIntroAnimate.to('.typing',{
     autoAlpha: 0
 }, ">3");
 
-tlMaster.add(tlIntroAnimate, ">");
+tlMaster.add(tlIntroAnimate);
 
 
 function typeWord(word) {
