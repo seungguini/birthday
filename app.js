@@ -18,12 +18,12 @@ tlMaster
 .call(console.log("scroll trigger"));
 
 // when user enters input, change search photo on unsplash and change background
-$(".inputField").on('keyup', function (e) {
-    if (e.key === 'Enter' || e.keyCode === 13) {
-        var text = document.getElementById('inputField').value;
-        tlMaster.add(changeBackground(value));
-    }
-});
+var form = document.getElementById("inputForm");
+function handleForm(event) { 
+    console.log('eventlistenerforsubmit');
+    event.preventDefault();
+} 
+form.addEventListener('submit', handleForm);
 
 // e.key is the modern way of detecting keys
 // e.keyCode is deprecated (left here for for legacy browsers support)
