@@ -17,6 +17,18 @@ tlMaster
 .add(scrollAnimate())
 .call(console.log("scroll trigger"));
 
+// when user enters input, change search photo on unsplash and change background
+$(".inputField").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        var text = document.getElementById('inputField').value;
+        tlMaster.add(changeBackground(value));
+    }
+});
+
+// e.key is the modern way of detecting keys
+// e.keyCode is deprecated (left here for for legacy browsers support)
+// keyup is not compatible with Jquery select(), Keydown is.
+
 /* ------ TIMELINE ANIMATION FUNCTIONS ------ */
 
 // timeline for setting initial animations before animating
@@ -31,7 +43,6 @@ function setAnimations() {
         autoAlpha: 0,
         y: '-=10'
     });
-
     return tl;
 }
 
@@ -136,7 +147,7 @@ function scrollAnimate() {
             }
         }
     });
-    
+
     // text: happy 21st birthday!
     tl.to('.hello', {
         duration: 2, 
@@ -146,6 +157,26 @@ function scrollAnimate() {
         yoyo:true, 
         repeatDelay: 1
     },">1")
+
+    tl.to('.hello', {
+        duration: 2, 
+        text: "what do i do?", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1")
+
+
+    tl.to('.hello', {
+        duration: 2, 
+        text: "i react to your feelings!", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1")
+
     
     // input example : happy
     .to('.hello', {
@@ -157,11 +188,12 @@ function scrollAnimate() {
         repeatDelay: 1
     },">1")    
     .to('.happy', {
-        duration: 3,
+        duration: 1,
         autoAlpha: 1,
+        ease: "power4.inOut",
         repeat: 1,
-        repeatDelay: 0.5,
         yoyo:true,
+        repeatDelay: 0.5,
     }, '<')
 
     // input example : sad
@@ -174,12 +206,22 @@ function scrollAnimate() {
         repeatDelay: 1
     },">1")
     .to('.sad', {
-        duration: 3,
+        duration: 1,
         autoAlpha: 1,
+        ease: "power4.inOut",
         repeat: 1,
-        repeatDelay: 0.5,
         yoyo:true,
-    }, '<');
+        repeatDelay: 0.5,
+    }, '<')
+
+    .to('.hello', {
+        duration: 1, 
+        text: "try me out!", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1");
 
     return tl;
 }
@@ -189,11 +231,17 @@ function openInput() {
     tl.to('.typing',{
         autoAlpha: 0,
         duration: 0
-    }, ">");
-    tl.to('.inputContainer', {
+    }, ">")
+    
+    .to('.inputContainer', {
         autoAlpha: 1,
         duration: 0
-    }, ">");
+    }, ">")
+    
+    .to('#inputField', {
+        border: "10px solid white",
+        duration: 0
+    })
     return tl;
 }
 
@@ -203,5 +251,30 @@ function lockScroll() {
         overflow: 'hidden'
     });
     console.log('scroll locked');
+    return tl;
+}
+
+
+// get a function that changes background of userIMG
+// based on user input
+function changeBackground(term) {
+    const NEWURL = 'https://source.unplash.com/1600x900/?' + term;
+    var tl = gsap.timeline();
+
+    // first fade img
+    tl.to('.userIMG', {
+        autoAlpha: 0
+    })
+
+    // then change background to user input
+    .set('.userIMG', {
+    attr: {src: NEWURL}
+    })
+    // finally load the new img
+
+    .to('.userIMG', {
+        autoAlpha: 1
+    });
+    console.log("Hello");
     return tl;
 }
