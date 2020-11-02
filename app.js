@@ -1,3 +1,6 @@
+// base url for keyword search. concat keywords to end of the term
+const term = "https://source.unsplash.com/featured/1600x900/?"
+
 // reset scroll position on page reload
 window.addEventListener('beforeunload', function(event) { 
     window.scrollTo(0, 0);
@@ -19,9 +22,20 @@ tlMaster
 
 // when user enters input, change search photo on unsplash and change background
 var form = document.getElementById("inputForm");
+var input = document.getElementById("inputField");
 function handleForm(event) { 
-    console.log('eventlistenerforsubmit');
     event.preventDefault();
+
+    // value for form
+    var keyword = input.value.toLowerCase();
+
+    if (keyword === "birthday") {
+        window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday")
+    }
+    // prevent page reload upon form submit
+    
+    // search keyword on unsplash!
+    tlMaster.add(changeBackground(term.concat(keyword)));
 } 
 form.addEventListener('submit', handleForm);
 
@@ -258,23 +272,24 @@ function lockScroll() {
 // get a function that changes background of userIMG
 // based on user input
 function changeBackground(term) {
-    const NEWURL = 'https://source.unplash.com/1600x900/?' + term;
     var tl = gsap.timeline();
 
     // first fade img
     tl.to('.userIMG', {
-        autoAlpha: 0
+        autoAlpha: 1,
+        opacity: 0,
+        duration: 3
     })
 
     // then change background to user input
     .set('.userIMG', {
-    attr: {src: NEWURL}
+    attr: {src: term}
     })
     // finally load the new img
 
     .to('.userIMG', {
-        autoAlpha: 1
+        opacity: 100,
+        duration: 3
     });
-    console.log("Hello");
     return tl;
 }
