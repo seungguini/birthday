@@ -31,6 +31,7 @@ function handleForm(event) {
 
     if (keyword === "birthday") {
         window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday")
+        location.reload();
     }
     // prevent page reload upon form submit
     
