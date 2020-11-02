@@ -6,9 +6,6 @@ window.addEventListener('beforeunload', function(event) {
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
-// add this as something that plays if you don't type anything for a while..
-const hellos = ["no matter where you go", "no matter how you feel", "i'm here for you", "i love you"]
-
 let tlMaster = gsap.timeline();
 
 /* ----- SEQUENCING TIMELINE ----- */
@@ -18,7 +15,7 @@ tlMaster
 .add(introSquence())
 .call(console.log("intro sequence"))
 .add(scrollAnimate())
-.call(console.log("scroll trigger"))
+.call(console.log("scroll trigger"));
 
 /* ------ TIMELINE ANIMATION FUNCTIONS ------ */
 
@@ -105,9 +102,8 @@ function introSquence() {
         repeat: 5,
         yoyo: true,
         repeatDelay: 0.7
-    }, ">");
+    }, ">")
 
-    return tl;
 }
 
 // returns timeline for scrolltrigger animation in intro
@@ -120,8 +116,8 @@ function scrollAnimate() {
             end: "10000 center",
             pin: ".intro",
             scrub: 1,
+            once: true,
             markers: true,
-
             /* 
             isActive intially true
             when scroll trigger finishes
@@ -135,6 +131,7 @@ function scrollAnimate() {
 
                     // 2. switch boxes
                     tlMaster.add(openInput());
+                    
                 }
             }
         }
@@ -190,12 +187,13 @@ function scrollAnimate() {
 function openInput() {
     var tl = gsap.timeline();
     tl.to('.typing',{
-        autoAlpha: 0
-    });
+        autoAlpha: 0,
+        duration: 0
+    }, ">");
     tl.to('.inputContainer', {
-        autoAlpha: 1
-    });
-    console.log('input / text box switched')
+        autoAlpha: 1,
+        duration: 0
+    }, ">");
     return tl;
 }
 
