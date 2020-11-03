@@ -26,7 +26,7 @@ var input = document.getElementById("inputField");
 function handleForm(event) { 
     event.preventDefault();
 
-    // value for form
+    // value for form       
     var keyword = input.value.toLowerCase();
 
     if (keyword === "birthday") {
@@ -191,44 +191,7 @@ function scrollAnimate() {
         yoyo:true, 
         repeatDelay: 1
     },">1")
-
     
-    // input example : happy
-    .to('.hello', {
-        duration: 1, 
-        text: "happy", 
-        ease: "power4.inOut",
-        repeat: 1, 
-        yoyo:true, 
-        repeatDelay: 1
-    },">1")    
-    .to('.happy', {
-        duration: 1,
-        autoAlpha: 1,
-        ease: "power4.inOut",
-        repeat: 1,
-        yoyo:true,
-        repeatDelay: 0.5,
-    }, '<')
-
-    // input example : sad
-    .to('.hello', {
-        duration: 1, 
-        text: "sad", 
-        ease: "power4.inOut",
-        repeat: 1, 
-        yoyo:true, 
-        repeatDelay: 1
-    },">1")
-    .to('.sad', {
-        duration: 1,
-        autoAlpha: 1,
-        ease: "power4.inOut",
-        repeat: 1,
-        yoyo:true,
-        repeatDelay: 0.5,
-    }, '<')
-
     .to('.hello', {
         duration: 1, 
         text: "try me out!", 
