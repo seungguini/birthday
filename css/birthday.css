@@ -12,6 +12,22 @@
     transform: translate(-50%, -50%);
 }
 
+/* ----- AUDIO CONTROLS ----- */
+#btn_playPause{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    width:150px;
+    height:30px;
+    cursor:pointer;
+    outline:none;
+}
+
+
+
 /* nth child is the nth letter in happy birthday */
 #happybday path:nth-child(1){
     stroke-dasharray: 557.4px;

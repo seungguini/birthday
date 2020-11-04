@@ -21,47 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ANIMATION SEQUENCE */
     parallaxTl
-    .set('#second', {
-        y: -1000
-    })
-    .to('#third', 6, {
-        y: -300
-    }, '-=6')
-    .to('#second', 6, {
-        y: -200
-    }, '-=6')
     .to('#first', 6, {
         y: -100
     }, '-=6')
     .to('.content, .blur', 6, {
         top: '0%'
-    }, '-=6')
-    .to('.title', 6, {
-        y: -600,
-    }, '-=6')
-    .from('.one', 3, {
-        top: '40px',
-        autoAlpha: 0
-    }, '-=4')
-    .from('.two', 3, {
-        top: '40px',
-        autoAlpha: 0
-    }, '-=3.5')
-    .from('.three', 3, {
-        top: '40px',
-        autoAlpha: 0
-    }, '-=3.5')
-    .from('.four', 3, {
-        top: '40px',
-        autoAlpha: 0
-    }, '-=3.5')
-    .from('.text', 3, {
-        y: 60,
-        autoAlpha: 0
-    }, '-=4');
+    }, '-=6');
 });
 
-/* FIREWORKS */
+/* ----- PLAY MUSIC ----- */
+var audio = document.getElementById("losAudio");
+var btn_playPause = document.getElementById("btn_playPause");
+
+function losAudio_playPause() {
+  var isPaused = losAudio.paused;
+  losAudio[isPaused ? "play" : "pause"]();
+  
+}
+
+btn_playPause.addEventListener("click", losAudio_playPause);
+
+/* ----- FIREWORKS ----- */
 // helper functions
 const PI2 = Math.PI * 2
 const random = (min, max) => Math.random() * (max - min + 1) + min | 0
