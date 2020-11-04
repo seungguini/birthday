@@ -31,9 +31,13 @@ function handleForm(event) {
     var keyword = input.value.toLowerCase();
 
     if (keyword === "birthday") {
+        // unlock scroll to allow scroll to top
         tlMaster.add(unlockScroll());
+        // move scroll to top
         window.scrollTo(0, 0);
+        // update url
         window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday")
+        // load url
         location.reload();
     }
     // prevent page reload upon form submit
