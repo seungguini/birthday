@@ -4,7 +4,7 @@ window.addEventListener('beforeunload', function(event) {
 });
 
 for(let i = 0; i<bday.length; i++) {
-    console.log(`Letter ${i} is ${bday[i].getTotalLength()}`);
+    console.log(`Letter ${i+1} is ${bday[i].getTotalLength()}`);
 }
 document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
