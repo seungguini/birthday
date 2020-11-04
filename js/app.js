@@ -30,6 +30,7 @@ function handleForm(event) {
     var keyword = input.value.toLowerCase();
 
     if (keyword === "birthday") {
+        window.scrollTo(0, 0);
         window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday")
         location.reload();
     }

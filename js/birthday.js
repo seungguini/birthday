@@ -1,5 +1,6 @@
 const bday = document.querySelectorAll('#happybday path');
 
+
 for(let i = 0; i<bday.length; i++) {
     console.log(`Letter ${i} is ${bday[i].getTotalLength()}`);
 }
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let parallaxTl = gsap.timeline({
         scrollTrigger: {
-            trigger: ".section",
+            trigger: "container",
             start: "center center",
             end: "1000 center",
             scrub: 1,
