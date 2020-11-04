@@ -6,6 +6,7 @@ window.addEventListener('beforeunload', function(event) {
     window.scrollTo(0, 0);
 });
 
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(TextPlugin);
 
@@ -30,6 +31,7 @@ function handleForm(event) {
     var keyword = input.value.toLowerCase();
 
     if (keyword === "birthday") {
+        tlMaster.add(unlockScroll());
         window.scrollTo(0, 0);
         window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday")
         location.reload();
@@ -58,6 +60,9 @@ function setAnimations() {
     .set('.inputContainer',{
         autoAlpha: 0,
         y: '-=10'
+    })
+    .set('.plsScroll', {
+        y: '+=30'
     });
     return tl;
 }
@@ -233,6 +238,15 @@ function lockScroll() {
     return tl;
 }
 
+function unlockScroll() {
+    var tl = gsap.timeline();
+    tl.to('html, body', {
+        overflow: 'visible'
+    });
+    console.log('scroll locked');
+    return tl;
+}
+
 
 // get a function that changes background of userIMG
 // based on user input
@@ -258,3 +272,4 @@ function changeBackground(term) {
     });
     return tl;
 }
+
