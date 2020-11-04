@@ -148,6 +148,11 @@ section{
     height: 100%;
 }
 
+#first {
+    top: 300px; 
+    z-index: 0; 
+}
+
 .blur {
     width: 120%;
     margin-left: -10%;
@@ -227,4 +232,17 @@ section{
     width: 60%;
     font-size: 0.8em;
     text-align: center;
+}
+
+/* FIREWORKS */  
+
+
+body {
+    cursor: crosshair;
+  }
+
+ canvas{
+    position: absolute;
+    z-index: -1;
+    display:block;
 }
