@@ -1,5 +1,7 @@
 const bday = document.querySelectorAll('#happybday path');
-
+window.addEventListener('beforeunload', function(event) { 
+    window.scrollTo(0, 0);
+});
 
 for(let i = 0; i<bday.length; i++) {
     console.log(`Letter ${i} is ${bday[i].getTotalLength()}`);
