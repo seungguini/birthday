@@ -5,6 +5,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+    overflow: hidden;
+}
+
 #happybday {
     position: absolute;
     top: 50%;

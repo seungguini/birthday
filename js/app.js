@@ -1,16 +1,23 @@
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(TextPlugin);
+let tlMaster = gsap.timeline();
+
 // base url for keyword search. concat keywords to end of the term
 const term = "https://source.unsplash.com/featured/1600x900/?"
 
 // reset scroll position on page reload
 window.addEventListener('beforeunload', function(event) { 
+    tlMaster.unlockScroll();
+    window.scrollTo(0, 0);
+});
+
+window.addEventListener('load', function(event) { 
+    tlMaster.unlockScroll();
     window.scrollTo(0, 0);
 });
 
 
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(TextPlugin);
 
-let tlMaster = gsap.timeline();
 
 /* ----- SEQUENCING TIMELINE ----- */
 tlMaster
@@ -35,8 +42,12 @@ function handleForm(event) {
         tlMaster.add(unlockScroll());
         // move scroll to top
         window.scrollTo(0, 0);
-        // update url
-        window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday")
+        // get current url ../index.html
+        let rawURL = window.location.href;
+        // slice off index.html
+        let slicedURL = rawURL.slice(0,-10);
+        // append birthday.html to url and push to history 
+        window.history.pushState({}, "Happy Birthday Rika!", slicedURL + "birthday.html");
         // load url
         location.reload();
     }
@@ -247,7 +258,7 @@ function unlockScroll() {
     tl.to('html, body', {
         overflow: 'visible'
     });
-    console.log('scroll locked');
+    console.log('scroll unlocked');
     return tl;
 }
 

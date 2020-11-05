@@ -2,32 +2,48 @@ const bday = document.querySelectorAll('#happybday path');
 window.addEventListener('beforeunload', function(event) { 
     window.scrollTo(0, 0);
 });
+window.addEventListener('load', function(event) { 
+  window.scrollTo(0, 0);
+});
 
 for(let i = 0; i<bday.length; i++) {
     console.log(`Letter ${i+1} is ${bday[i].getTotalLength()}`);
 }
-document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    let parallaxTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: "container",
-            start: "center center",
-            end: "1000 center",
-            scrub: 1,
-            markers: true
-        }    
-    })
 
-    /* ANIMATION SEQUENCE */
-    parallaxTl
-    .to('#first', 6, {
-        y: -100
-    }, '-=6')
-    .to('.content, .blur', 6, {
-        top: '0%'
-    }, '-=6');
+let masterTL = gsap.timeline();
+
+masterTL
+.from('#btn_playPause', 3, {
+  autoAlpha: 0,
+  ease: "power1.in",
+  yoyo:true,
+  repeat: -1
+})
+.set('html, body', {
+  overflow: 'visible'
 });
+
+gsap.registerPlugin(ScrollTrigger);
+let parallaxTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: "container",
+        start: "center center",
+        end: "1000 center",
+        scrub: 1,
+        markers: true
+    }    
+})
+
+/* ANIMATION SEQUENCE */
+parallaxTl
+.to('#first', 6, {
+    y: -100
+}, '-=6')
+.to('.content, .blur', 6, {
+    top: '0%'
+}, '-=6');
+
+masterTL.add(parallaxTl)
 
 /* ----- PLAY MUSIC ----- */
 var audio = document.getElementById("losAudio");
@@ -185,7 +201,7 @@ let ctx = canvas.getContext('2d')
 let then = timestamp()
 
 let birthday = new Birthday
-window.onresize = () => birthday.resize()
+//window.onresize = () => birthday.resize()
 document.onclick = evt => birthday.onClick(evt)
 document.ontouchstart = evt => birthday.onClick(evt)
 
