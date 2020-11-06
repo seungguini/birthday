@@ -62,7 +62,7 @@ function losAudio_playPause() {
 
 btn_playPause.addEventListener("click", losAudio_playPause);
 
-var jazz1 = true;
+var jazz1 = false;
 
 // play jazz ver once rom ver ends
 var audio = document.getElementById('losAudio');
@@ -70,13 +70,12 @@ audio.addEventListener('ended', function() {
   if (jazz1) {
     audio.src = "img/hbd_jazz.mp3";
   } else {
-    audio.src = "img/hbd_jazz2.mp3";
+    audio.src = "img/jazz10.mp3";
   }
   jazz1 != jazz1;
   audio.pause();
   audio.load();
   audio.play();
-  audio.loop = true;
 })
 
 /* ----- FIREWORKS ----- */
