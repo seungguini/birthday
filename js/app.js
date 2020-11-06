@@ -175,7 +175,6 @@ function scrollAnimate() {
             pin: ".intro",
             scrub: 1,
             once: true,
-            markers: true,
             /* 
             isActive intially true
             when scroll trigger finishes

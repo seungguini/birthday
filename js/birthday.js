@@ -33,7 +33,6 @@ let parallaxTl = gsap.timeline({
         start: "center center",
         end: "1000 center",
         scrub: 1,
-        markers: true,
         onEnter: () => {
           window.scrollTo(0, 0);
         }
