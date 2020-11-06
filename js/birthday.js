@@ -1,6 +1,8 @@
 const bday = document.querySelectorAll('#happybday path');
 window.addEventListener('beforeunload', function(event) { 
+    unlockScroll()
     window.scrollTo(0, 0);
+    lockScroll();
 });
 window.addEventListener('load', function(event) { 
   window.scrollTo(0, 0);
@@ -38,7 +40,7 @@ let parallaxTl = gsap.timeline({
     }    
 })
 
-/* ANIMATION SEQUENCE
+/* ANIMATION SEQUENCE */
 parallaxTl
 .to('#first', 6, {
     y: '-=100'
@@ -48,7 +50,7 @@ parallaxTl
 }, '-=6');
 
 masterTL.add(parallaxTl)
-*/
+
 /* ----- PLAY MUSIC ----- */
 var audio = document.getElementById("losAudio");
 var btn_playPause = document.getElementById("btn_playPause");

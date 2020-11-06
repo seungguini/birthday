@@ -24,12 +24,13 @@ tlMaster
 .call(console.log("animations set"))
 .add(introSquence())
 .call(console.log("intro sequence"))
-.add(scrollAnimate())
+.add(scrollAnimate(), ">")
 .call(console.log("scroll trigger"));
 
 // when user enters input, change search photo on unsplash and change background
 var form = document.getElementById("inputForm");
 var input = document.getElementById("inputField");
+
 function handleForm(event) { 
     event.preventDefault();
 
@@ -97,8 +98,8 @@ function introSquence() {
     // ENTER > AND _
     .to('.arrow', {
         opacity: 100,
-        duration: 5,
-        ease: 'power1.out',
+        duration: 1,
+        ease: 'power4.in',
     },"<2")
 
     // CURSOR
@@ -107,12 +108,12 @@ function introSquence() {
         ease: "power4.in", 
         repeat: -1, 
         yoyo:true, 
-        repeatDelay: 0.5}, "<1")
+        repeatDelay: 0.5}, ">1")
 
     // hello rika!
     .to('.hello', {
-        duration: 2, 
-        text: "hi, rika", 
+        duration: 4, 
+        text: "hi, rika <3", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 
@@ -130,11 +131,14 @@ function introSquence() {
     },">1")
 
     // show landingIMG with text above
+    .add(revealIMG('.landingIMG'), '<-1')
+    
+    /*
     .to('.landingIMG', {
         autoAlpha: 1,
         duration: 5,
     }, '<-1')
-
+    */
     // unlock scrolling
     .to("html, body", {
         overflow: "visible"
@@ -183,19 +187,9 @@ function scrollAnimate() {
         }
     });
 
-    // text: happy 21st birthday!
     tl.to('.hello', {
         duration: 2, 
-        text: "happy 21st birthday!", 
-        ease: "power4.inOut",
-        repeat: 1, 
-        yoyo:true, 
-        repeatDelay: 1
-    },">1")
-
-    tl.to('.hello', {
-        duration: 2, 
-        text: "what do i do?", 
+        text: "you may be wondering", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 
@@ -203,23 +197,65 @@ function scrollAnimate() {
     },">1")
 
 
-    tl.to('.hello', {
+    .to('.hello', {
         duration: 2, 
-        text: "i react to your feelings!", 
+        text: "what the heckie is this?", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 
         repeatDelay: 1
     },">1")
-    
+
+    //.add(revealIMG(".heckieIMG"), '<-1')
+
     .to('.hello', {
         duration: 1, 
-        text: "try me out!", 
+        text: "well,", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 
         repeatDelay: 1
-    },">1");
+    },">1")
+
+    .to('.hello', {
+        duration: 1, 
+        text: "for this special occasion", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1")
+
+    .to('.hello', {
+        duration: 3, 
+        text: "i have built our own hub", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1")
+
+    //.add(revealIMG('.hubIMG'), "<-1")
+
+    .to('.hello', {
+        duration: 2, 
+        text: "try it out!", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1")
+
+    .to('.hello', {
+        duration: 3, 
+        text: "please type 'birthday'", 
+        ease: "power4.inOut",
+        repeat: 1, 
+        yoyo:true, 
+        repeatDelay: 1
+    },">1")
+
+    //.add(revealIMG('.typingIMG'), "<-1");
 
     return tl;
 }
@@ -287,3 +323,17 @@ function changeBackground(term) {
     return tl;
 }
 
+// reveals hidden IMG with class className
+function revealIMG(className) {
+
+    var tl = gsap.timeline();
+      
+    // reveal img
+    tl.to(className, {
+        autoAlpha: 1,
+        duration: 5,
+    },'<-1');
+ 
+    return tl;
+    
+}
