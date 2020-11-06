@@ -8,11 +8,13 @@ const term = "https://source.unsplash.com/featured/1600x900/?"
 // reset scroll position on page reload
 window.addEventListener('beforeunload', function(event) { 
     tlMaster.unlockScroll();
+    tlMaster.seek(0);
     window.scrollTo(0, 0);
 });
 
 window.addEventListener('load', function(event) { 
     window.scrollTo(0, 0);
+    tlMaster.seek(0);
 });
 
 
@@ -113,7 +115,7 @@ function introSquence() {
     // hello rika!
     .to('.hello', {
         duration: 4, 
-        text: "hi, rika <3", 
+        text: "hello rika <3", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 
@@ -163,7 +165,7 @@ function scrollAnimate() {
         scrollTrigger: {
             trigger: ".intro",
             start: "center center",
-            end: "10000 center",
+            end: "20000 center",
             pin: ".intro",
             scrub: 1,
             once: true,
@@ -218,7 +220,7 @@ function scrollAnimate() {
     },">1")
 
     .to('.hello', {
-        duration: 1, 
+        duration: 3, 
         text: "for this special occasion", 
         ease: "power4.inOut",
         repeat: 1, 
@@ -248,7 +250,7 @@ function scrollAnimate() {
 
     .to('.hello', {
         duration: 3, 
-        text: "please type 'birthday'", 
+        text: "please type & enter 'birthday'", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 

@@ -19,7 +19,7 @@ masterTL
   autoAlpha: 0,
   ease: "power1.in",
   yoyo:true,
-  repeat: -1
+  repeat: 5
 })
 .set('html, body', {
   overflow: 'visible'
