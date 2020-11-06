@@ -13,8 +13,10 @@ window.addEventListener('beforeunload', function(event) {
 });
 
 window.addEventListener('load', function(event) { 
+    tlMaster.unlockScroll();
     window.scrollTo(0, 0);
     tlMaster.seek(0);
+    tlMaster.lockScroll();
 });
 
 
@@ -46,15 +48,18 @@ function handleForm(event) {
         window.scrollTo(0, 0);
         // get current url ../index.html
         let rawURL = window.location.href;
+        if (rawURL.slice(0,5) === "https") {
+            window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday");
+        } else {
         // slice off index.html
         let slicedURL = rawURL.slice(0,-10);
         // append birthday.html to url and push to history 
         window.history.pushState({}, "Happy Birthday Rika!", slicedURL + "birthday.html");
         // load url
         location.reload();
-    }
-    // prevent page reload upon form submit
-    
+
+        }
+    }    
     // search keyword on unsplash!
     tlMaster.add(changeBackground(term.concat(keyword)));
 } 
@@ -250,7 +255,7 @@ function scrollAnimate() {
 
     .to('.hello', {
         duration: 3, 
-        text: "please type & enter 'birthday'", 
+        text: "type & enter 'birthday'", 
         ease: "power4.inOut",
         repeat: 1, 
         yoyo:true, 
