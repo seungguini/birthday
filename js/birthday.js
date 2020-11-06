@@ -62,10 +62,17 @@ function losAudio_playPause() {
 
 btn_playPause.addEventListener("click", losAudio_playPause);
 
+var jazz1 = true;
+
 // play jazz ver once rom ver ends
 var audio = document.getElementById('losAudio');
 audio.addEventListener('ended', function() {
-  audio.src = "img/hbd_jazz.mp3";
+  if (jazz1) {
+    audio.src = "img/hbd_jazz.mp3";
+  } else {
+    audio.src = "img/hbd_jazz2.mp3";
+  }
+  jazz1 != jazz1;
   audio.pause();
   audio.load();
   audio.play();
