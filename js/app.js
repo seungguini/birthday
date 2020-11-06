@@ -50,6 +50,7 @@ function handleForm(event) {
         let rawURL = window.location.href;
         if (rawURL.slice(0,5) === "https") {
             window.history.pushState({}, "Happy Birthday Rika!", "https://kucingapel.github.io/birthday/birthday");
+            location.reload();
         } else {
         // slice off index.html
         let slicedURL = rawURL.slice(0,-10);
