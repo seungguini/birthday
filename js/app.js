@@ -304,7 +304,7 @@ function unlockScroll() {
     return tl;
 }
 
-
+/*
 // get a function that changes background of userIMG
 // based on user input
 function changeBackground(term) {
@@ -329,7 +329,7 @@ function changeBackground(term) {
     });
     return tl;
 }
-
+*/
 // reveals hidden IMG with class className
 function revealIMG(className) {
 
