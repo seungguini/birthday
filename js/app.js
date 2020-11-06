@@ -7,16 +7,16 @@ const term = "https://source.unsplash.com/featured/1600x900/?"
 
 // reset scroll position on page reload
 window.addEventListener('beforeunload', function(event) { 
-    tlMaster.unlockScroll();
+    tlMaster.add(unlockScroll());
     tlMaster.seek(0);
     window.scrollTo(0, 0);
 });
 
 window.addEventListener('load', function(event) { 
-    tlMaster.unlockScroll();
+    tlMaster.add(unlockScroll());
     window.scrollTo(0, 0);
     tlMaster.seek(0);
-    tlMaster.lockScroll();
+    tlMaster.add(lockScroll());
 });
 
 
