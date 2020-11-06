@@ -23,28 +23,32 @@ masterTL
   overflow: 'visible'
 });
 
+
 gsap.registerPlugin(ScrollTrigger);
 let parallaxTl = gsap.timeline({
     scrollTrigger: {
-        trigger: "container",
+        trigger: ".container",
         start: "center center",
         end: "1000 center",
         scrub: 1,
-        markers: true
+        markers: true,
+        onEnter: () => {
+          window.scrollTo(0, 0);
+        }
     }    
 })
 
-/* ANIMATION SEQUENCE */
+/* ANIMATION SEQUENCE
 parallaxTl
 .to('#first', 6, {
-    y: -100
+    y: '-=100'
 }, '-=6')
 .to('.content, .blur', 6, {
     top: '0%'
 }, '-=6');
 
 masterTL.add(parallaxTl)
-
+*/
 /* ----- PLAY MUSIC ----- */
 var audio = document.getElementById("losAudio");
 var btn_playPause = document.getElementById("btn_playPause");

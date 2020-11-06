@@ -12,7 +12,6 @@ window.addEventListener('beforeunload', function(event) {
 });
 
 window.addEventListener('load', function(event) { 
-    tlMaster.unlockScroll();
     window.scrollTo(0, 0);
 });
 
