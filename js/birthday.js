@@ -62,7 +62,7 @@ function losAudio_playPause() {
 
 btn_playPause.addEventListener("click", losAudio_playPause);
 
-var jazz1 = false;
+var jazz1 = true;
 
 // play jazz ver once rom ver ends
 var audio = document.getElementById('losAudio');
