@@ -51,31 +51,29 @@ parallaxTl
 masterTL.add(parallaxTl)
 
 /* ----- PLAY MUSIC ----- */
+const playlist = ["hbd_jazz.mp3", "jazz10.mp3", "vintagechristmas.mp3", "ghiblirelax.mp3"];
+var playlistLength = playlist.length;
+
 var audio = document.getElementById("losAudio");
 var btn_playPause = document.getElementById("btn_playPause");
 
 function losAudio_playPause() {
   var isPaused = losAudio.paused;
-  losAudio[isPaused ? "play" : "pause"]();
-  
+  losAudio[isPaused ? "play" : "pause"]();  
 }
 
 btn_playPause.addEventListener("click", losAudio_playPause);
 
-var jazz1 = true;
 
 // play jazz ver once rom ver ends
 var audio = document.getElementById('losAudio');
 audio.addEventListener('ended', function() {
-  if (jazz1) {
-    audio.src = "img/hbd_jazz.mp3";
-  } else {
-    audio.src = "img/jazz10.mp3";
-  }
-  jazz1 != jazz1;
+  var randomIndex = Math.floor(Math.random() * playlistLength);
+  audio.src = "img/" + playlist[randomIndex];
   audio.pause();
   audio.load();
   audio.play();
+  console.log("playing music: " + playlist[randomIndex]);
 })
 
 /* ----- FIREWORKS ----- */
